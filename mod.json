@@ -1,0 +1,33 @@
+{
+	"geode": "4.6.0",
+	"gd": {
+		"android": "2.2081"
+	},
+	"id": "tuusuario.antideathinput",
+	"name": "Anti-Death Input",
+	"version": "v0.1.0",
+	"developer": "tuusuario",
+	"description": "Retiene los inputs que te llevarían a una muerte y los aplica en el primer paso seguro. Tres modos: Hyper Falso, Semi Humano y Humano.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Activado",
+			"default": true
+		},
+		"mode": {
+			"type": "string",
+			"name": "Modo",
+			"description": "Hyper Falso = 100%, Semi Humano = 50%, Humano = 10%",
+			"default": "Hyper Falso",
+			"one-of": ["Hyper Falso", "Semi Humano", "Humano"]
+		},
+		"lookahead": {
+			"type": "int",
+			"name": "Pasos de lookahead",
+			"description": "Cuántos pasos de física se simulan hacia adelante. Más = más preciso, pero más costoso.",
+			"default": 2,
+			"min": 1,
+			"max": 6
+		}
+	}
+}
