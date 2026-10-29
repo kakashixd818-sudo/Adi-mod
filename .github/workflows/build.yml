@@ -2,7 +2,7 @@ name: Build Geode Mod
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "principal", "master" ]
 
 jobs:
   build:
