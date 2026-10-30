@@ -66,10 +66,6 @@ class $modify(ADIGameLayer, GJBaseGameLayer) {
     // Simula `steps` pasos. Si `changeInput` es true, primero aplica el botón
     // `hold` (como si lo hicieras ahora); si es false, simula seguir como estás.
     // Devuelve true si en algún paso habría muerte. Todo se restaura al final.
-    //
-    // ⚠ Parte delicada: PlayerCheckpoint no guarda absolutamente todo (aros
-    //   tocados, botones mantenidos, etc.). Si ves fallos con orbes/pads,
-    //   hay que ampliar el snapshot aquí.
     bool simulate(bool changeInput, bool hold, bool isP1, int steps) {
         auto p1 = m_player1;
         auto p2 = m_player2;
@@ -148,7 +144,8 @@ class $modify(ADIGameLayer, GJBaseGameLayer) {
     }
 
     // Antes de cada paso, reintentar los inputs retenidos (sin volver a tirar dado).
-    void processCommands(float dt) {
+    // En esta versión de GD la función recibe 3 argumentos.
+    void processCommands(float dt, bool isHalfTick, bool isLastTick) {
         adi::st.dt = dt;
 
         if (adi::enabled() && !adi::simulating && PlayLayer::get()) {
@@ -176,6 +173,6 @@ class $modify(ADIGameLayer, GJBaseGameLayer) {
             }
         }
 
-        GJBaseGameLayer::processCommands(dt);
+        GJBaseGameLayer::processCommands(dt, isHalfTick, isLastTick);
     }
 };
