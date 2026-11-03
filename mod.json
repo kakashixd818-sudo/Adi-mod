@@ -1,1 +1,25 @@
-
+{
+	"geode": "5.9.0",
+	"gd": {
+		"android": "2.2081"
+	},
+	"id": "tuusuario.antideathinput",
+	"name": "Input Buffer",
+	"version": "v0.2.0",
+	"developer": "tuusuario",
+	"description": "Guarda los clicks dados un poco antes de aterrizar y los dispara en el primer paso en que tocas el suelo. Tres modos: Hyper Falso, Semi Humano y Humano.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Activado",
+			"default": true
+		},
+		"mode": {
+			"type": "string",
+			"name": "Modo",
+			"description": "Hyper Falso = 100% y ventana grande, Semi Humano = 50%, Humano = 10% y ventana chica",
+			"default": "Hyper Falso",
+			"one-of": ["Hyper Falso", "Semi Humano", "Humano"]
+		}
+	}
+}
